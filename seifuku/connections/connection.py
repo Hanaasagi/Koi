@@ -1,5 +1,15 @@
-class ConnectionInterface(object):
+class Connection:
     """ Define what behavior a Connection object should have """
+
+    def __init__(self):
+        pass
+
+
+    def connect(self):
+        pass
+
+    def reconnect(self):
+        pass
 
     def exec(self):
         """execute SQL statement"""
