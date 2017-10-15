@@ -1,5 +1,6 @@
 from collections import UserDict
 from seifuku.utils.helpers import is_dunder
+from copy import deepcopy
 
 # for mypy
 from typing import Any, Hashable
@@ -45,6 +46,9 @@ class Config(UserDict):
 
     def __getattr__(self, attr: str) -> Any:
         return self.data[attr]
+
+    def __deepcopy__(self, memo):
+        return self.from_dict(deepcopy(self.data))
 
 
 if __name__ == '__main__':
