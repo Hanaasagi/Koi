@@ -1,2 +1,2 @@
-# Koi(こい)
+# koi こい
 advanced ORM
