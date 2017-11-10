@@ -1,5 +1,5 @@
 from collections import UserDict
-from seifuku.utils.helpers import is_dunder
+from koi.utils.helpers import is_dunder
 from copy import deepcopy
 
 # for mypy

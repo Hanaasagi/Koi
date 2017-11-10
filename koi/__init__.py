@@ -1,7 +1,7 @@
 from copy import deepcopy
-from seifuku.connectors import strategies
-from seifuku.utils.datatypes import Config
-from seifuku.exceptions import ConfigError
+from koi.connectors import strategies
+from koi.utils.datatypes import Config
+from koi.exceptions import ConfigError
 
 
 class DatabaseManager:

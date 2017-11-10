@@ -1,7 +1,7 @@
-from seifuku.connections import MySQLConnection
-from seifuku.connectors import Connector
-from seifuku.exceptions import DriverNotSupport, ReadOnly
-from seifuku.utils.dynamic_import import import_class
+from koi.connections import MySQLConnection
+from koi.connectors import Connector
+from koi.exceptions import DriverNotSupport, ReadOnly
+from koi.utils.dynamic_import import import_class
 
 
 class MySQLConnector(Connector):
@@ -9,7 +9,7 @@ class MySQLConnector(Connector):
     _connection_cls = MySQLConnection
 
     driver_mapping = {
-        'pymysql': import_class('seifuku.drivers.mysql.pymysql.driver'),
+        'pymysql': import_class('koi.drivers.mysql.pymysql.driver'),
     }
 
     def __init__(self, config):

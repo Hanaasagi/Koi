@@ -1,4 +1,4 @@
-from seifuku.connections.connection import Connection
+from koi.connections.connection import Connection
 
 
 class MySQLConnection(Connection):

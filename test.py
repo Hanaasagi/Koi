@@ -14,6 +14,6 @@ config = {
     }
 }
 
-from seifuku import DatabaseManager
+from koi import DatabaseManager
 
 db = DatabaseManager(config)
