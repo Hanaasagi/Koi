@@ -1,2 +1,2 @@
-# imouto.seifuku
+# Koi(こい)
 advanced ORM
