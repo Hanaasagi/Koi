@@ -1,11 +1,11 @@
-from .builder import Builder
+from .builder import QueryBuilder
 
 
 class Query:
 
     @classmethod
     def _builder(cls):
-        return Builder()
+        return QueryBuilder()
 
     @classmethod
     def from_(cls, table):

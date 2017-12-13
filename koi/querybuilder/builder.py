@@ -1,4 +1,4 @@
-from koi.utils import builder
+from koi.utils import builder, ignoredeepcopy
 from .terms import Field
 
 
@@ -15,6 +15,7 @@ class Table:
 
         return table_sql
 
+    @ignoredeepcopy
     def __getattr__(self, name):
         return Field(name)
 
@@ -29,6 +30,7 @@ class QueryBuilder:
     def __init__(self):
         self._from = []
         self._columns = []
+        self._selects = []
         self._distinct = False
 
     @builder
@@ -43,10 +45,12 @@ class QueryBuilder:
     def _select_field(self, term):
         self._selects.append(term)
 
-    def to_sql(self):
+    def to_sql(self, **kwargs):
+        kwargs['with_namespace'] = kwargs.get('with_namespace', False)
         querystring = ''
+        querystring += self._select_sql(**kwargs)
         if self._from:
-            querystring += self._from_sql()
+            querystring += self._from_sql(**kwargs)
         return querystring
 
     def _from_sql(self, subquery=None, with_alias=None, with_unions=None, **kwargs):

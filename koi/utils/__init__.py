@@ -11,6 +11,20 @@ def builder(func):
     return _copy
 
 
+def ignoredeepcopy(func):
+    def _getattr(self, name):
+        if name in ('__deepcopy__', '__getstate__',
+                    '__setstate__', '__getnewargs__'):
+            raise AttributeError(
+                "'%s' object has no attribute '%s'" % (self.__class__.__name__,
+                                                       name))
+
+        return func(self, name)
+
+    return _getattr
+
+
 __all__ = [
     'builder',
+    'ignoredeepcopy',
 ]

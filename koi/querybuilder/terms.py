@@ -1,11 +1,4 @@
-from koi.utils import builder
-
-
 class Term:
-
-    @builder
-    def as_(self, alias):
-        self.alias = alias
 
     def to_sql(self):
         raise NotImplementedError()
